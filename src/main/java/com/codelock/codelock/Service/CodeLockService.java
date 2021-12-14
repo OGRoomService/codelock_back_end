@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityNotFoundException;
 
 import com.codelock.codelock.Model.CodeLock;
+import com.codelock.codelock.Model.Server;
 import com.codelock.codelock.Repository.CodeLockRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,12 @@ public class CodeLockService {
 
     public CodeLock findbyId(long id) {
         return codelockRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+    }
+
+    public CodeLock createCodeLock(Server server) {
+        CodeLock codelock = new CodeLock(server);
+        save(codelock);
+        return codelock;
     }
     
     public CodeLock save(CodeLock codelock) {

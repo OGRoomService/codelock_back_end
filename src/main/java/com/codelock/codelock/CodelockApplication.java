@@ -9,5 +9,4 @@ public class CodelockApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CodelockApplication.class, args);
 	}
-
 }
